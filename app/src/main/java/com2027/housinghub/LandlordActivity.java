@@ -28,8 +28,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+import com2027.housinghub.Home.HomeActivity;
+import com2027.housinghub.Models.User;
+
 import java.io.IOException;
 import java.io.InputStream;
+
 
 public class LandlordActivity extends AppCompatActivity {
 
@@ -50,6 +55,16 @@ public class LandlordActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // If a user is already logged in, go straight to the home page
+        if(firebaseAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(this, HomeActivity.class));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,7 +215,11 @@ public class LandlordActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()) {
-                                                Toast.makeText(LandlordActivity.this, "User Is Registered", Toast.LENGTH_SHORT).show();
+                                                finish();
+                                                Intent registerUser = new Intent(LandlordActivity.this, HomeActivity.class);
+                                                registerUser.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                startActivity(registerUser);
+                                                Toast.makeText(LandlordActivity.this, "Landlord Is Now Registered", Toast.LENGTH_SHORT).show();
                                             } else {
                                                 Toast.makeText(LandlordActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                             }

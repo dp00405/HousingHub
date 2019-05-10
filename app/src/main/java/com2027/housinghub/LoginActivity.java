@@ -1,5 +1,7 @@
 package com2027.housinghub;
 
+import com2027.housinghub.Home.HomeActivity;
+
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -42,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+
         progressDialog = new ProgressDialog(this);
 
         //Retrieves data from other activities which return to this activity when a pressable
@@ -73,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         NoAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 //Creates an intent and starts a new activity
                 Intent accountact = new Intent(LoginActivity.this, AccountActivity.class);
                 startActivity(accountact);
@@ -117,11 +121,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.hide();
                 if (task.isSuccessful()) {
+                    finish();
                     // successful log In
                     // The User will be directed to their profile page here
                     // in the intent remember to make a intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    Intent homeact = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(homeact);
+
+                    Intent signIn = new Intent(LoginActivity.this, HomeActivity.class);
+                    signIn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(signIn);
+
                     Toast.makeText(getApplicationContext(), "User is Logged In", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -174,4 +182,14 @@ public class LoginActivity extends AppCompatActivity {
         builder.create().show();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // If a user is already logged in, go straight to the home page
+        if(mAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(this, HomeActivity.class));
+        }
+    }
 }

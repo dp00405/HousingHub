@@ -4,29 +4,26 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- *
+ * implements Parceble if I need to
  */
-public class User implements Parcelable {
+public class User {
 
-    private String user_id;
-    private String email;
-    private String username;
-    private String password;
-    private UserType type;
+    public String firstName, surname, email, phone, userType;
 
 
 
     /**
      *
-     * @param username
+     * @param firstName
+     * @param surname
      * @param email
-     * @param password
+     * @param userType
      */
-    public User( String username, String email, String password, UserType type ){
+    public User(String firstName, String surname, String email, String userType) {
+        this.firstName = firstName;
+        this.surname = surname;
         this.email = email;
-        this.username = username;
-        this.password = password;
-        this.type = type;
+        this.userType = userType;
     }
 
     /**
@@ -36,31 +33,29 @@ public class User implements Parcelable {
 
     }
 
-    /**
-     *
-     * @param in
-     */
-    protected User(Parcel in) {
-        user_id = in.readString();
-        email = in.readString();
-        username = in.readString();
-        password = in.readString();
+
+//    protected User(Parcel in) {
+//        user_id = in.readString();
+//        email = in.readString();
+//        username = in.readString();
+//        password = in.readString();
+//    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    /**
-     *
-     */
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
     public String getEmail() {
         return email;
@@ -70,40 +65,49 @@ public class User implements Parcelable {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
-    public UserType getType() {
-        return type;
-    }
+    /**
+     *
+     */
+//    public static final Creator<User> CREATOR = new Creator<User>() {
+//        @Override
+//        public User createFromParcel(Parcel in) {
+//            return new User(in);
+//        }
+//
+//        @Override
+//        public User[] newArray(int size) {
+//            return new User[size];
+//        }
+//    };
 
-    public void setType(UserType type) {
-        this.type = type;
-    }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(user_id);
-        parcel.writeString(email);
-        parcel.writeString(username);
-        parcel.writeString(password);
-    }
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+
+//    @Override
+//    public void writeToParcel(Parcel parcel, int i) {
+//        parcel.writeString(user_id);
+//        parcel.writeString(email);
+//        parcel.writeString(username);
+//        parcel.writeString(password);
+//    }
 }

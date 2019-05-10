@@ -15,6 +15,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 import com2027.housinghub.Models.House;
 import com2027.housinghub.Models.User;
@@ -33,7 +38,10 @@ public class MainFeedListAdapter extends ArrayAdapter<House> {
     private int mLayoutResorce;
     private Context mContext;
     private String currentUsername = "";
-    //private DatabaseReference mReference;
+
+
+
+
 
     public MainFeedListAdapter(@NonNull Context context, int resource, @NonNull List<House> objects) {
         super(context, resource, objects);
@@ -41,6 +49,9 @@ public class MainFeedListAdapter extends ArrayAdapter<House> {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mLayoutResorce = resource;
         this.mContext = context;
+
+
+
     }
 
     static class ViewHolder{
