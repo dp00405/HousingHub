@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/imageViewGroup"
@@ -25,6 +25,7 @@
                 android:id="@+id/textNameGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
                 android:text="Name Name"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -33,6 +34,7 @@
                 android:id="@+id/textUniGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
                 android:text="University of Example"
                 android:textSize="22sp" />
 
@@ -40,6 +42,7 @@
                 android:id="@+id/textCourseGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
                 android:text="Prestigous Course"
                 android:textSize="22sp"
                 android:textStyle="italic" />

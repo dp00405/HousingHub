@@ -171,41 +171,47 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="1dp"
+        android:layout_marginTop="8dp"
         android:background="#FFFFFF"
         android:hint="@string/email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h26"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h25"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v11"
         app:layout_constraintStart_toStartOf="@+id/guideline_v10"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h25" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_h24" />
 
     <EditText
         android:id="@+id/etPhoneNumber"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="1dp"
+        android:layout_marginTop="8dp"
         android:background="#FFFFFF"
         android:hint="@string/number"
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h27"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h26"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v11"
         app:layout_constraintStart_toStartOf="@+id/guideline_v10"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h26" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_h25" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="1dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:background="#FFFFFF"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h28"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h27"
         app:layout_constraintEnd_toStartOf="@+id/guideline_v11"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_v10"
-        app:layout_constraintTop_toTopOf="@+id/guideline_h27" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_h26"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btLandlordVerifyAccount"

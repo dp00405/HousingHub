@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 //import com2027.housinghub.Account.AccountFragment;
+import com2027.housinghub.Account.StudentProfileFragment;
 import com2027.housinghub.Favourites.FavouriteFragment;
 import com2027.housinghub.Group.GroupFragment;
 import com2027.housinghub.LoginActivity;
@@ -191,10 +192,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 //READ ============================================================= READ
                 //This should show the edit version of their account, unless an edit button is added
                 //The uneditable version will be shown when a different account views their profile
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new LandlordProfileFragment()).commit();
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                //        new StudentProfileFragment()).commit();
+                //        new LandlordProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new StudentProfileFragment()).commit();
                 break;
 
             case R.id.nav_settings:
